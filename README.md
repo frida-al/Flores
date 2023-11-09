@@ -2,7 +2,7 @@
 Este proyecto es para la materia Pensamiento Computacional Orientado a Objetos TC1033.302.
 
 ## Contexto
-Un invernadero quiere juntar información acerca de los tipos de plantas que maneja, por lo que se generan clases para cada tipo de planta: *flores, plantas medicinales y árboles frutales*. Asimismo, buscan calcular con cuántos litros de agua hay que regar las flores dependiendo de la estación del año en la que se encuentren y calcular cuántas pulgadas mide cada árbol frutal dependiendo de su edad.
+Un invernadero quiere juntar información acerca de los diferentes tipos de plantas que maneja, por lo que se generan clases para cada tipo de planta: *flores, plantas medicinales y árboles frutales*. Asimismo, buscan calcular con cuántos litros de agua hay que regar las flores dependiendo de la estación del año en la que se encuentren y calcular cuántas pulgadas mide cada árbol frutal dependiendo de su edad.
 ## Funcionalidad
 Primeramente, el programa imprime un menú que le permite al usuario elegir qué información quiere obtener. Las opciones son 
 1. Flores
