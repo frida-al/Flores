@@ -18,3 +18,4 @@ El programa solo corre en la consola y esta hecho con c++ standard por lo que co
 - correr en windows: "a.exe"
 ## Correcciones
 Versión 1.0: 08 de noviembre 2023
+Versión 2.0: 14 de noviembre 2023. Esta versión necesita solamente un archivo .h, que es **"Planta.h"**. En dicho archivo se encuentran las 3 clases previamente existentes. Estas tres clases (**flores, plantas medicinales y árboles frutales**) han pasado a ser clases hijas al hacer uso de la herencia. La clase padre es ahora **Planta**, de la cuál se heredan los atributos y métodos de nombre y edad.
