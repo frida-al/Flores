@@ -2,7 +2,7 @@
 * Proyecto Invernadero
 * Frida Arcadia Luna
 * A01711615
-* 16 de noviembre 2023
+* 14 de noviembre 2023
 */
 
 /*
@@ -88,19 +88,19 @@ int main(){
         std::cin >> res2;
         if (res2 == 1){
             std::cout << "The plant is " << planta1.get_nombre() << std::endl;
-            std::cout << "It is " << planta1.get_edad() << "years old" <<std::endl;
+            std::cout << "It is " << planta1.get_edad() << " years old" <<std::endl;
             std::cout << "It is from " << planta1.get_origen() << std::endl;
             std::cout << "It is " << planta1.get_uso() << std::endl;
         }
         else if (res2 == 2){
             std::cout << "The plant is " << planta2.get_nombre() << std::endl;
-            std::cout << "It is " << planta1.get_edad() << "years old" <<std::endl;
+            std::cout << "It is " << planta1.get_edad() << " years old" <<std::endl;
             std::cout << "It is from " << planta2.get_origen() << std::endl;
             std::cout << "It helps with " << planta2.get_uso() << std::endl;
         }
         else if (res2 == 3){
             std::cout << "The plant is " << planta3.get_nombre() << std::endl;
-            std::cout << "It is " << planta1.get_edad() << "years old" <<std::endl;
+            std::cout << "It is " << planta1.get_edad() << " year old" <<std::endl;
             std::cout << "It is from " << planta3.get_origen() << std::endl;
             std::cout << "It helps with " << planta3.get_uso() << std::endl;
         }
@@ -140,4 +140,4 @@ int main(){
     }
     }
             return 0;
-}    
+}            
