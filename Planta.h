@@ -130,7 +130,7 @@ class Fruit:public Planta{ //La clase Fruit contiene 3 métodos, que sirven para
     std::string get_time();
     void set_altura(int);
     int get_altura();
-    int height(int);
+    void height(int);
 };
 
 void Fruit::set_type(std::string ty){ // setter de tipo
@@ -157,7 +157,7 @@ int Fruit::get_altura(){ // getter de altura
     return altura;
 }
 
-int Fruit::height(int pulg){ // función altura. Calcula la altura del árbol en pulgadas con respecto a su edad
+void Fruit::height(int pulg){ // función altura. Calcula la altura del árbol en pulgadas con respecto a su edad
     if (edad < 20){
     altura = altura + (edad * pulg);
     }
