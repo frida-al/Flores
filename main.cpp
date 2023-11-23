@@ -2,7 +2,7 @@
 * Proyecto Invernadero
 * Frida Arcadia Luna
 * A01711615
-* 14 de noviembre 2023
+* 22 de noviembre 2023
 */
 
 /*
@@ -27,9 +27,10 @@ void menu(){
 }
 
 int main(){
-    int res, res1, res2, res3, edad; //variables enteros
+    int res, res1, res2, res3, years; //variables enteros
     std::string temporada; //variable de estación del año
     bool continua = true; //variable para ciclar el programa
+    std::string bees;
 
     // Objetos clase 1:
     Flores flor1("Rose bush", 2, "red", 15.0);
@@ -42,9 +43,9 @@ int main(){
     Medicinales planta3("Aloe Vera", 4, "Africa", "Burns and wounds");
 
     //Objetos clase 3:
-    Fruit frutal1("Peach", 6, "Tree","July-August", 0); 
-    Fruit frutal2("Orange", 7, "Tree","September-April", 0);
-    Fruit frutal3("Cherry", 5, "Tree","March-April", 0);
+    Fruit frutal1("Peach", 5, "Tree","July-August", 0); 
+    Fruit frutal2("Orange", 6, "Tree","September-April", 0);
+    Fruit frutal3("Cherry", 7, "Tree","March-April", 0);
 
     //Ciclo para que el sistema siga corriendo mientras no se elija la opción "Exit"
     while (continua == true)
@@ -55,7 +56,7 @@ int main(){
 
     //Dependiendo del input, se realizan ciertas operaciones
     if (res == 1){ // Opción "Flowers"
-        std::cout << "Flowers. What do you want to know?" << std::endl << "1) Flower 1" << std::endl << "2) Flower 2"<< std::endl << "3) Flower 3" << std::endl << "4) Irrigation" << std::endl;
+        std::cout << "Flowers. What do you want to know?" << std::endl << "1) Flower 1" << std::endl << "2) Flower 2"<< std::endl << "3) Flower 3" << std::endl << "4) Irrigation" << std::endl << "5) Pollination" << std::endl;
         std::cin >> res1; 
         if (res1 == 1){
             std::cout << "The flower 1 is " << flor1.get_color() << std::endl;
@@ -82,13 +83,24 @@ int main(){
             std::cout << "The flower 2 needs " << flor2.get_litros() <<  " liters per week" << std::endl;
             std::cout << "The flower 3 needs " << flor3.get_litros() <<  " liters per week" << std::endl;
         }
+        else if (res1 == 5){
+            std::cout << "Were there bees with the flowers? Answer Yes or No ";
+            std::cin >> bees;
+            flor1.set_abejas(bees);
+            flor2.set_abejas(bees);
+            flor3.set_abejas(bees);
+            std::cout << "Are they pollinated? 1 for yes (true), 0 for no (false)" << std::endl;
+            std::cout << flor1.get_abejas().get_abejas() << std::endl;
+            std::cout << flor2.get_abejas().get_abejas() << std::endl;
+            std::cout << flor3.get_abejas().get_abejas() << std::endl;
+        }
     }
     else if (res == 2){ //Opción "Medicinal plants"
         std::cout << "Medicinal plants. What do you want to know?" << std::endl <<"1) Plant 1" << std::endl << "2) Plant 2" << std::endl << "3) Plant 3" << std::endl;
         std::cin >> res2;
         if (res2 == 1){
             std::cout << "The plant is " << planta1.get_nombre() << std::endl;
-            std::cout << "It is " << planta1.get_edad() << " years old" <<std::endl;
+            std::cout << "It is " << planta1.get_edad() << " year old" <<std::endl;
             std::cout << "It is from " << planta1.get_origen() << std::endl;
             std::cout << "It is " << planta1.get_uso() << std::endl;
         }
@@ -125,10 +137,10 @@ int main(){
         }
         else if (res3 == 4){
             std::cout << "Age of the tree: "; 
-            std::cin >> edad;
-            frutal1.height(20);
-            frutal2.height(18);
-            frutal3.height(12);
+            std::cin >> years;
+            frutal1.height(20, years);
+            frutal2.height(18, years);
+            frutal3.height(12, years);
             std::cout << "The Peach tree is " << frutal1.get_altura() << " inches tall" << std::endl;
             std::cout << "The Orange tree is " << frutal2.get_altura() << " inches tall" << std::endl;
             std::cout << "The Cherry tree is " << frutal3.get_altura() << " inches tall" << std::endl;
