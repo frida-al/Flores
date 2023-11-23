@@ -2,7 +2,7 @@
 * Proyecto Invernadero
 * Frida Arcadia Luna
 * A01711615
-* 16 de noviembre 2023
+* 22 de noviembre 2023
 */
 
 /*
@@ -13,6 +13,7 @@
 */
 
 #include <string>
+#include "Abejas.h" // Se incluye el archivo de la clase de composición
 
 class Planta { // Clase padre que contiene atributos de nombre y edad, que se heredan a las clases hijas.
 
@@ -51,6 +52,7 @@ class Flores:public Planta{ //La clase Flores contiene 2 métodos, 1 sirve para 
     private: //Declaración de atributos
     std::string color;
     float litros;
+    Abejas poliniza; // Objeto tipo Abejas
 
     public: // Prototipos
     Flores(): Planta(), color(""), litros(0){}; // Constructor por default
@@ -60,6 +62,9 @@ class Flores:public Planta{ //La clase Flores contiene 2 métodos, 1 sirve para 
     void set_litros(float);
     float get_litros();
     void riego(std::string);
+    Abejas get_abejas();
+    void set_abejas(Abejas);
+
 };
 void Flores::set_color(std::string col){ // setter de color
     color = col;
@@ -81,8 +86,13 @@ void Flores::riego(std::string temporada){ // función riego. Basado en la époc
     if (temporada == "winter" || temporada == "Winter"){
         litros = litros / 2;
     }
-    else 
-        litros = litros;
+}
+
+void Flores::set_abejas(Abejas pol){
+    poliniza = pol;
+}
+Abejas Flores::get_abejas(){
+    return poliniza;
 }
 
 //Clase Medicinales
@@ -130,7 +140,7 @@ class Fruit:public Planta{ //La clase Fruit contiene 3 métodos, que sirven para
     std::string get_time();
     void set_altura(int);
     int get_altura();
-    void height(int);
+    void height(int, int);
 };
 
 void Fruit::set_type(std::string ty){ // setter de tipo
@@ -157,8 +167,9 @@ int Fruit::get_altura(){ // getter de altura
     return altura;
 }
 
-void Fruit::height(int pulg){ // función altura. Calcula la altura del árbol en pulgadas con respecto a su edad
-    if (edad < 20){
-    altura = altura + (edad * pulg);
-    }
+void Fruit::height(int pulg, int years){ // función altura. Calcula la altura del árbol en pulgadas con respecto a su edad
+    if (years < 20){
+    altura = (years * pulg);
+    
+}
 }
