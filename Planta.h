@@ -63,7 +63,7 @@ class Flores:public Planta{ //La clase Flores contiene 2 métodos, 1 sirve para 
     float get_litros();
     void riego(std::string);
     Abejas get_abejas();
-    void set_abejas(Abejas);
+    void set_abejas(std::string);
 
 };
 void Flores::set_color(std::string col){ // setter de color
@@ -88,7 +88,8 @@ void Flores::riego(std::string temporada){ // función riego. Basado en la époc
     }
 }
 
-void Flores::set_abejas(Abejas pol){
+void Flores::set_abejas(std::string bees){
+    Abejas pol(bees);
     poliniza = pol;
 }
 Abejas Flores::get_abejas(){
