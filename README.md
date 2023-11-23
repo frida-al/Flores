@@ -20,3 +20,5 @@ El programa solo corre en la consola y esta hecho con c++ standard por lo que co
 Versión 1.0: 08 de noviembre 2023
 
 Versión 2.0: 14 de noviembre 2023. Esta versión necesita solamente un archivo .h, que es **"Planta.h"**. En dicho archivo se encuentran las 3 clases previamente existentes. Estas tres clases (**flores, plantas medicinales y árboles frutales**) han pasado a ser clases hijas al hacer uso de la herencia. La clase padre es ahora **Planta**, de la cuál se heredan los atributos y métodos de nombre y edad.
+
+Versión 3.0: 22 de noviembre 2023. En esta versión se mantiene el archivo **"Planta.h"**, que contiene la clase *Planta* más las tres clases hijas *flores, plantas medicinales y árboles frutales*, sin embargo, se agrega el archivo **Abejas.h**, que es un ejemplo de composición para la clase *FLORES* solamente. El propósito de este archivo es saber si ha habido contacto entre las flores y las abejas. Si sí ha habido contacto, se expresa que las flores han sido polinizadas. De lo contrario, se considera que las flores no han sido polinizadas.
