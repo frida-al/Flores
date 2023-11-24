@@ -5,6 +5,8 @@
 * 22 de noviembre 2023
 */
 
+#ifndef ABEJAS_H
+#define ABEJAS_H
 #include <string>
 
 // Clase Abejas (composición de clase Flores)
@@ -30,3 +32,4 @@ bool Abejas::get_abejas(){
         return false;
     }
 }
+#endif
