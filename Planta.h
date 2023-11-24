@@ -12,6 +12,8 @@
 *atributos y métodos propios.
 */
 
+#ifndef PLANTA_H
+#define PLANTA_H
 #include <string>
 #include "Abejas.h" // Se incluye el archivo de la clase de composición
 
@@ -174,3 +176,4 @@ void Fruit::height(int pulg, int years){ // función altura. Calcula la altura d
     
 }
 }
+#endif
