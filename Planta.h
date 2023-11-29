@@ -112,7 +112,7 @@ class Flores:public Planta{
      *  Constructor 
      * 
      * @param nom, ed, col, lit
-     * @return Objeto Planta
+     * @return Objeto Flores
      */ 
     Flores(std::string nom, int ed, std::string col, float lit): Planta(nom, ed), color(col), litros(lit){};
     //Métodos miembros de la clase
@@ -146,8 +146,8 @@ std::string Flores::get_color(){
     return color;
 }
 /**
- * setter de variable color
- * Asigna a la variable un string que recibe del Objeto
+ * setter de variable litros
+ * Asigna a la variable un float que recibe del Objeto
  * 
  * @param lit
  * @return
@@ -178,7 +178,7 @@ void Flores::riego(std::string temporada){
     }
 }
 /**
- * Setter de abejas
+ * Setter de variable poliniza
  * Crea un objeto con el parámetro que recibe
  * 
  * @param bees
@@ -189,11 +189,11 @@ void Flores::set_abejas(std::string bees){
     poliniza = pol;
 }
 /**
- * getter de variable abejas
+ * getter de variable poliniza
  * regresa poliniza
  * 
  * @param
- * @return litros
+ * @return poliniza
 */
 Abejas Flores::get_abejas(){
     return poliniza;
@@ -230,7 +230,7 @@ class Medicinales:public Planta{
 };
 /**
  * Setter de variable origen
- * Crea un objeto con el parámetro que recibe
+ * Asigna un string a la variable
  * 
  * @param ori
  * @return
@@ -240,7 +240,7 @@ void Medicinales::set_origen(std::string ori){
 }
 /**
  * getter de variable origen
- * regresa poliniza
+ * regresa origen
  * 
  * @param
  * @return origen
@@ -250,7 +250,7 @@ std::string Medicinales::get_origen(){
 }
 /**
  * Setter de variable uso
- * Crea un objeto con el parámetro que recibe
+ * Asigna un string a la variable
  * 
  * @param use
  * @return
@@ -259,8 +259,8 @@ void Medicinales::set_uso(std::string use){
     uso = use;
 }
 /**
- * getter de variable origen
- * regresa poliniza
+ * getter de variable uso
+ * regresa uso
  * 
  * @param
  * @return uso
@@ -290,7 +290,7 @@ class Fruit:public Planta{
      *  Constructor 
      * 
      * @param nom, ed, ty, ti, alt
-     * @return Objeto Medicinales
+     * @return Objeto Fruit
      */ 
     Fruit(std::string nom, int ed, std::string ty, std::string ti, int alt): Planta(nom, ed), type(ty), time(ti), altura(alt){};
     // Metodos miembro de la clase
@@ -304,7 +304,7 @@ class Fruit:public Planta{
 };
 /**
  * Setter de variable type
- * Crea un objeto con el parámetro que recibe
+ * Asigna un string a la variable
  * 
  * @param ty
  * @return
@@ -313,7 +313,7 @@ void Fruit::set_type(std::string ty){
     type = ty;
 }
 /**
- * getter de variable origen
+ * getter de variable type
  * regresa type
  * 
  * @param
@@ -324,7 +324,7 @@ std::string Fruit::get_type(){
 }
 /**
  * Setter de variable time
- * Crea un objeto con el parámetro que recibe
+ * Asigna un string a la variable 
  * 
  * @param ti
  * @return
@@ -333,7 +333,7 @@ void Fruit::set_time(std::string ti){
     time = ti;
 }
 /**
- * getter de variable origen
+ * getter de variable time
  * regresa time
  * 
  * @param
@@ -344,7 +344,7 @@ std::string Fruit::get_time(){
 }
 /**
  * Setter de variable altura
- * Crea un objeto con el parámetro que recibe
+ * Asigna un entero a la variable
  * 
  * @param alt
  * @return
