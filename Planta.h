@@ -2,7 +2,7 @@
 * Proyecto Invernadero
 * Frida Arcadia Luna
 * A01711615
-* 22 de noviembre 2023
+* 30 de noviembre 2023
 */
 
 /*
@@ -14,51 +14,108 @@
 
 #ifndef PLANTA_H
 #define PLANTA_H
+
 #include <string>
-#include "Abejas.h" // Se incluye el archivo de la clase de composición
+#include "Abejas.h" 
 
-class Planta { // Clase padre que contiene atributos de nombre y edad, que se heredan a las clases hijas.
+//Declaración de clase Planta
+class Planta { 
 
-    private: // Atributos
+    private: 
+    // Declara las variables de instancia
     std::string nombre;
 
     public: 
-    int edad; // Atributo público
-    Planta(): nombre(""), edad(0){}; // Constructor por default 
+    // Atributo público
+    int edad; 
+    /**
+     *  Constructor por default 
+     * 
+     * @param
+     * @return Objeto Planta
+     */
+    Planta(): nombre(""), edad(0){};
+    /**
+     *  Constructor 
+     * 
+     * @param nom, ed
+     * @return Objeto Planta
+     */ 
     Planta(std::string nom, int ed): nombre(nom), edad(ed){};
-    void set_nombre (std::string); // Prototipo
-    std::string get_nombre(); // Prototipo
-    void set_edad (int); // Prototipo
-    int get_edad(); // Prototipo
+    // Métodos miembro de la clase
+    void set_nombre (std::string); 
+    std::string get_nombre(); 
+    void set_edad (int); 
+    int get_edad(); 
 };
-
-void Planta::set_nombre(std::string nom){ // setter de nombre
+/**
+ * setter de variable nombre
+ * Asigna a la variable un string que recibe del Objeto
+ * 
+ * @param nom
+ * @return
+ */
+void Planta::set_nombre(std::string nom){ 
+    // parametro: variable de instancia
     nombre = nom;
 }
-
-std::string Planta::get_nombre(){ // getter de nombre
+/**
+ * getter de variable nombre
+ * regresa nombre
+ * 
+ * @param
+ * @return nombre
+*/
+std::string Planta::get_nombre(){ 
     return nombre;
 }
-
-void Planta::set_edad(int ed){ // setter de edad
+/**
+ * setter de variable edad
+ * Asigna a la variable un entero que recibe del Objeto
+ * 
+ * @param ed
+ * @return
+ */
+void Planta::set_edad(int ed){ 
     edad = ed;
 }
-
-int Planta::get_edad(){ // getter de edad
+/**
+ * getter de variable edad
+ * regresa edad
+ * 
+ * @param
+ * @return edad
+*/
+int Planta::get_edad(){ 
     return edad;
 }
 
-// Clase Flores
-class Flores:public Planta{ //La clase Flores contiene 2 métodos, 1 sirve para mostrar el color de la planta y el otro para calcular cuántos litros de agua necesita cada planta dependiento de la estación del año
+// Declaración clase Flores que hereda de clase Plantas
+class Flores:public Planta{ 
     
-    private: //Declaración de atributos
+    private: 
+    //Declara las variables de instancia
     std::string color;
     float litros;
-    Abejas poliniza; // Objeto tipo Abejas
+    // Objeto tipo Abejas
+    Abejas poliniza; 
 
-    public: // Prototipos
-    Flores(): Planta(), color(""), litros(0){}; // Constructor por default
+    public: 
+    /**
+     *  Constructor por default 
+     * 
+     * @param
+     * @return Objeto Flores
+     */
+    Flores(): Planta(), color(""), litros(0){}; 
+     /**
+     *  Constructor 
+     * 
+     * @param nom, ed, col, lit
+     * @return Objeto Planta
+     */ 
     Flores(std::string nom, int ed, std::string col, float lit): Planta(nom, ed), color(col), litros(lit){};
+    //Métodos miembros de la clase
     void set_color(std::string);
     std::string get_color();
     void set_litros(float);
@@ -68,75 +125,175 @@ class Flores:public Planta{ //La clase Flores contiene 2 métodos, 1 sirve para 
     void set_abejas(std::string);
 
 };
-void Flores::set_color(std::string col){ // setter de color
+/**
+ * setter de variable color
+ * Asigna a la variable un string que recibe del Objeto
+ * 
+ * @param col
+ * @return
+ */
+void Flores::set_color(std::string col){ 
     color = col;
 }
-
-std::string Flores::get_color(){ // getter de color
+/**
+ * getter de variable color
+ * regresa color
+ * 
+ * @param
+ * @return color
+*/
+std::string Flores::get_color(){ 
     return color;
 }
-
-void Flores::set_litros(float lit){ // setter de color
+/**
+ * setter de variable color
+ * Asigna a la variable un string que recibe del Objeto
+ * 
+ * @param lit
+ * @return
+ */
+void Flores::set_litros(float lit){ 
     litros = lit;
 }
-
-float Flores::get_litros(){ // getter de color
+/**
+ * getter de variable litros
+ * regresa litros
+ * 
+ * @param
+ * @return litros
+*/
+float Flores::get_litros(){ 
     return litros;
 }
-
-void Flores::riego(std::string temporada){ // función riego. Basado en la época del año, calcula los litros de agua que debe tomar la planta
+/**
+ * Función riego
+ * Modifica la variable litros dependiendo del input del usuario
+ * 
+ * @param temporada
+ * @return
+ */
+void Flores::riego(std::string temporada){ 
     if (temporada == "winter" || temporada == "Winter"){
         litros = litros / 2;
     }
 }
-
+/**
+ * Setter de abejas
+ * Crea un objeto con el parámetro que recibe
+ * 
+ * @param bees
+ * @return
+ */
 void Flores::set_abejas(std::string bees){
     Abejas pol(bees);
     poliniza = pol;
 }
+/**
+ * getter de variable abejas
+ * regresa poliniza
+ * 
+ * @param
+ * @return litros
+*/
 Abejas Flores::get_abejas(){
     return poliniza;
 }
 
-//Clase Medicinales
-class Medicinales:public Planta{ // La clase Medicinales contiene 2 métodos que sirven para mostrar el origen de la planta y su uso.
+//Declaración de clase Medicinales que hereda de clase Plantas
+class Medicinales:public Planta{ 
 
-    private: // Declaración de atributos
+    private: 
+    //Declara las variables de instancia
     std::string uso;
     std::string origen;
 
-    public: // Prototipos
-    Medicinales(): Planta(), uso(""), origen(""){}; // Constructor por default
+    public: 
+     /**
+     *  Constructor por default 
+     * 
+     * @param
+     * @return Objeto Medicinales
+     */
+    Medicinales(): Planta(), uso(""), origen(""){}; 
+    /**
+     *  Constructor 
+     * 
+     * @param nom, ed, ori, use
+     * @return Objeto Medicinales
+     */ 
     Medicinales(std::string nom, int ed, std::string ori, std::string use): Planta(nom, ed), uso(use), origen(ori){};
+    //Métodos miembros de la clase
     void set_origen(std::string);
     std::string get_origen();
     void set_uso(std::string);
     std::string get_uso();
 };
-void Medicinales::set_origen(std::string ori){ // setter de origen
+/**
+ * Setter de variable origen
+ * Crea un objeto con el parámetro que recibe
+ * 
+ * @param ori
+ * @return
+ */
+void Medicinales::set_origen(std::string ori){ 
     origen = ori;
 }
-std::string Medicinales::get_origen(){ // getter de origen
+/**
+ * getter de variable origen
+ * regresa poliniza
+ * 
+ * @param
+ * @return origen
+*/
+std::string Medicinales::get_origen(){ 
     return origen;
 }
-void Medicinales::set_uso(std::string use){ // setter de uso
+/**
+ * Setter de variable uso
+ * Crea un objeto con el parámetro que recibe
+ * 
+ * @param use
+ * @return
+ */
+void Medicinales::set_uso(std::string use){ 
     uso = use;
 }
-std::string Medicinales::get_uso(){ // getter de uso
+/**
+ * getter de variable origen
+ * regresa poliniza
+ * 
+ * @param
+ * @return uso
+*/
+std::string Medicinales::get_uso(){ 
     return uso;
 }
 
 //Clase Fruit
-class Fruit:public Planta{ //La clase Fruit contiene 3 métodos, que sirven para proporcionar información de la planta y calcular cuánto mide la planta con respecto a la edad.
+class Fruit:public Planta{ 
 
-    private: // Declaración de atributos
+    private: 
+    // Declara las variables de instancia
     std::string type;
     std::string time;
     int altura;
 
-    public: //Prototipos
-    Fruit(): Planta(), type(""), time(""), altura(0){}; // Constructor por default
+    public: 
+    /**
+     *  Constructor por default 
+     * 
+     * @param
+     * @return Objeto Fruit
+     */
+    Fruit(): Planta(), type(""), time(""), altura(0){}; 
+    /**
+     *  Constructor 
+     * 
+     * @param nom, ed, ty, ti, alt
+     * @return Objeto Medicinales
+     */ 
     Fruit(std::string nom, int ed, std::string ty, std::string ti, int alt): Planta(nom, ed), type(ty), time(ti), altura(alt){};
+    // Metodos miembro de la clase
     void set_type(std::string);
     std::string get_type();
     void set_time(std::string);
@@ -145,35 +302,77 @@ class Fruit:public Planta{ //La clase Fruit contiene 3 métodos, que sirven para
     int get_altura();
     void height(int, int);
 };
-
-void Fruit::set_type(std::string ty){ // setter de tipo
+/**
+ * Setter de variable type
+ * Crea un objeto con el parámetro que recibe
+ * 
+ * @param ty
+ * @return
+ */
+void Fruit::set_type(std::string ty){ 
     type = ty;
 }
-
-std::string Fruit::get_type(){ // getter de tipo
+/**
+ * getter de variable origen
+ * regresa type
+ * 
+ * @param
+ * @return type
+*/
+std::string Fruit::get_type(){ 
     return type;
 }
-
-void Fruit::set_time(std::string ti){ // setter de tiempo
+/**
+ * Setter de variable time
+ * Crea un objeto con el parámetro que recibe
+ * 
+ * @param ti
+ * @return
+ */
+void Fruit::set_time(std::string ti){ 
     time = ti;
 }
-
-std::string Fruit::get_time(){ // getter de tiempo
+/**
+ * getter de variable origen
+ * regresa time
+ * 
+ * @param
+ * @return time
+*/
+std::string Fruit::get_time(){ 
     return time;
 }
-
-void Fruit::set_altura(int alt){ // setter de altura
+/**
+ * Setter de variable altura
+ * Crea un objeto con el parámetro que recibe
+ * 
+ * @param alt
+ * @return
+ */
+void Fruit::set_altura(int alt){ 
     altura = alt;
 }
-
-int Fruit::get_altura(){ // getter de altura
+/**
+ * getter de variable altura
+ * regresa altura
+ * 
+ * @param
+ * @return altura
+*/
+int Fruit::get_altura(){ 
     return altura;
 }
-
-void Fruit::height(int pulg, int years){ // función altura. Calcula la altura del árbol en pulgadas con respecto a su edad
+/**
+ * Función height
+ * Modifica la variable altura dependiendo del input del usuario
+ * 
+ * @param pulg, years 
+ * @return
+ */
+void Fruit::height(int pulg, int years){ 
     if (years < 20){
     altura = (years * pulg);
     
 }
 }
-#endif
+#endif // PLANTA_H
