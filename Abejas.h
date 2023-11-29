@@ -4,7 +4,8 @@
 * A01711615
 * 30 de noviembre 2023
 */
-/**
+
+/*
  * Clase Abejas (composición de clase Flores)
 */
 
